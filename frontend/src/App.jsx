@@ -14,23 +14,21 @@ function App() {
 
   const handleSearch = async () => {
     try {
-      const res = await axios.get(`http://localhost:3000/categories/${categoryName}/products?top=${top}&minPrice=${minPrice}&maxPrice=${maxPrice}`);
+      const res = await axios.get(`http://localhost:3000/categories/Laptop/products?top=10&minPrice=1&maxPrice=1000`);
       setData(res.data.products);
     } catch (error) {
       console.error('Error:', error);
     }
   };
 
-  console.log(data)
+  // console.log(data)
 
   return (
-
-    <div className='md:grid md:grid-cols-2 grid grid-cols-2 md:p-4 p-2 lg:grid lg:grid-cols-2'>
+    <>
       <div>
         <label>Category Name:</label>
         <input type="text" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} />
       </div>
-      
       <div>
         <label>Top:</label>
         <input type="text" value={top} onChange={(e) => setTop(e.target.value)} />
@@ -43,10 +41,11 @@ function App() {
         <label>Max Price:</label>
         <input type="text" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
       </div>
-      <button onClick={handleSearch}>Search</button>
-      {data.map((user, index) => (<Posts key={index} availability={user.availability} discount={user.discount} price={user.price} productName={user.productName} rating={user.rating} />))}
-    </div>
-
+      <button className='bg-sky-700' onClick={handleSearch}>Search</button>
+      <div className='md:grid md:grid-cols-2 grid grid-cols-2 md:p-4 p-2 lg:grid lg:grid-cols-2'>
+        {data.map((user, index) => (<Posts key={index} availability={user.availability} discount={user.discount} price={user.price} productName={user.productName} rating={user.rating} />))}
+      </div>
+    </>
   )
 }
 

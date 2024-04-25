@@ -17,12 +17,12 @@ const arr = [];
 app.get('/categories/:categoryname/products', async function (req, res) {
     const categoryName = req.params;
     console.log(categoryName)
-    const { n, min, max } = req.query;
+    const { top, min, max } = req.query;
 
     try {
-        const productResponse = await axios.get(`http://20.244.56.144/test/companies/AMZ/categories/${categoryName.categoryname}/products?top=${top}&minPrice=${min}&maxPrice=${max}`, {
+        const productResponse = await axios.get(`http://20.244.56.144/test/companies/AMZ/categories/${categoryName.categoryname}/products?top=10&minPrice=1&maxPrice=1000`, {
             headers: {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiZXhwIjoxNzE0MDQ4NzA5LCJpYXQiOjE3MTQwNDg0MDksImlzcyI6IkFmZm9yZG1lZCIsImp0aSI6ImNkMTQ4Y2FkLWQ4YjEtNGIxMC05MjIxLThkZmFmOGMyNzVmZiIsInN1YiI6IkUyMUNTRVUwNjM2QGJlbm5ldHQuZWR1LmluIn0sImNvbXBhbnlOYW1lIjoiQmVubmV0dCBVbml2ZXJzaXR5IiwiY2xpZW50SUQiOiJjZDE0OGNhZC1kOGIxLTRiMTAtOTIyMS04ZGZhZjhjMjc1ZmYiLCJjbGllbnRTZWNyZXQiOiJRd1FNcE1VRUhXVm9tSE9OIiwib3duZXJOYW1lIjoiU3VqYWwgWWFkYXYiLCJvd25lckVtYWlsIjoiRTIxQ1NFVTA2MzZAYmVubmV0dC5lZHUuaW4iLCJyb2xsTm8iOiJFMjFDU0VVMDYzNiJ9.hgMJUIukqypUWeQN3pgLrfWay0AURKJBnsMxC0yqFaI"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiZXhwIjoxNzE0MDQ5Nzg4LCJpYXQiOjE3MTQwNDk0ODgsImlzcyI6IkFmZm9yZG1lZCIsImp0aSI6ImNkMTQ4Y2FkLWQ4YjEtNGIxMC05MjIxLThkZmFmOGMyNzVmZiIsInN1YiI6IkUyMUNTRVUwNjM2QGJlbm5ldHQuZWR1LmluIn0sImNvbXBhbnlOYW1lIjoiQmVubmV0dCBVbml2ZXJzaXR5IiwiY2xpZW50SUQiOiJjZDE0OGNhZC1kOGIxLTRiMTAtOTIyMS04ZGZhZjhjMjc1ZmYiLCJjbGllbnRTZWNyZXQiOiJRd1FNcE1VRUhXVm9tSE9OIiwib3duZXJOYW1lIjoiU3VqYWwgWWFkYXYiLCJvd25lckVtYWlsIjoiRTIxQ1NFVTA2MzZAYmVubmV0dC5lZHUuaW4iLCJyb2xsTm8iOiJFMjFDU0VVMDYzNiJ9.78r9neZB_D5yDbr1EVzhewJCJ0TWHD4dCfj8RIqJv8o"
             }
         })
 
